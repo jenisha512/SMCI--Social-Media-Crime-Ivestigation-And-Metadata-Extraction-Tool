@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Forensics Tool</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; margin: 0; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #1a73e8; text-align: center; border-bottom: 2px solid #e0e0e0; padding-bottom: 20px; }
+        .card { background: #f8f9fa; border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 8px; }
+        h3 { margin-top: 0; color: #333; }
+        button { background-color: #1a73e8; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-size: 16px; transition: background 0.3s; }
+        button:hover { background-color: #1557b0; }
+        input[type="file"], textarea { width: 100%; margin-bottom: 15px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        .footer { text-align: center; margin-top: 30px; color: #666; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Social Media Forensics Tool</h1>
+        <p style="text-align: center; color: #555;">Cybersecurity Final Year Project</p>
+
+        <div class="card">
+            <h3>📸 Option 1: Image Forensics</h3>
+            <p>Upload an image to extract EXIF metadata and generate a SHA-256 hash.</p>
+            <form action="/analyze_image" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept="image/*" required>
+                <button type="submit">Analyze Image</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h3>💬 Option 2: Chat Log Analysis</h3>
+            <p>Paste text or chat logs to scan for criminal keywords.</p>
+            <form action="/analyze_text" method="post">
+                <textarea name="text_content" rows="6" placeholder="Paste conversation here..." required></textarea>
+                <button type="submit">Analyze Text</button>
+            </form>
+        </div>
+        
+        <div class="footer">
+            Developed by Tirth Choksi | Cyber Security Student
+        </div>
+    </div>
+</body>
+</html>

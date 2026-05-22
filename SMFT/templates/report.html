@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forensic Report</title>
+    <style>
+        body { font-family: 'Courier New', Courier, monospace; background-color: #1e1e1e; color: #00ff00; padding: 40px; }
+        .report-box { border: 2px solid #00ff00; padding: 30px; max-width: 900px; margin: 0 auto; background-color: #000; box-shadow: 0 0 20px rgba(0, 255, 0, 0.2); }
+        h1 { text-align: center; border-bottom: 1px dashed #00ff00; padding-bottom: 10px; }
+        .section { margin-bottom: 20px; }
+        .label { color: #fff; font-weight: bold; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #333; padding: 10px; text-align: left; color: #ccc; }
+        th { color: #00ff00; }
+        .alert { color: #ff4444; font-weight: bold; }
+        .btn { display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #00ff00; color: #000; text-decoration: none; font-weight: bold; border-radius: 5px; }
+        .btn:hover { background-color: #00cc00; }
+    </style>
+</head>
+<body>
+    <div class="report-box">
+        <h1>[ DIGITAL FORENSIC REPORT ]</h1>
+        
+        <div class="section">
+            <p><span class="label">EVIDENCE TYPE:</span> {{ evidence_type }}</p>
+            <p><span class="label">TARGET:</span> {{ target }}</p>
+            <p><span class="label">SHA-256 HASH:</span> {{ hash_val }}</p>
+        </div>
+
+        <div class="section">
+            <h3>/// ANALYSIS FINDINGS ///</h3>
+            {% if data %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Parameter / Category</th>
+                            <th>Value / Keywords Found</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for key, value in data.items() %}
+                        <tr>
+                            <td>{{ key }}</td>
+                            <td>{{ value }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p class="alert">NO SIGNIFICANT DATA FOUND.</p>
+            {% endif %}
+        </div>
+
+        <div style="text-align: center;">
+            <a href="/" class="btn">Start New Investigation</a>
+        </div>
+    </div>
+</body>
+</html>
